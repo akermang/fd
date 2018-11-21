@@ -57,7 +57,7 @@ class CellitemComponent extends Component {
 
   render() {
     const { row, colKey, sheetData } = this.props;
-    let text = "";
+    let text = this.state.inputValue;
     sheetData ? (text = this.renderData(row, colKey, sheetData)) : null;
 
     return (
