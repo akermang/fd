@@ -8,8 +8,15 @@ class CellitemComponent extends Component {
     super(props);
     this.state = {
       isEditMode: false,
-      inputValue: ""
+      inputValue: "",
+      isEdited: false
     };
+  }
+
+  data() {
+    this.sheetData
+      ? this.renderData(this.row, this.colKey, this.sheetData)
+      : null;
   }
 
   onBlur(e, row, colKey) {
@@ -39,6 +46,7 @@ class CellitemComponent extends Component {
 
   cancelEditMode() {
     this.setState({ isEditMode: false });
+    this.setState({ isEdited: true });
   }
 
   renderData(row, col, data) {
@@ -58,6 +66,7 @@ class CellitemComponent extends Component {
   render() {
     const { row, colKey, sheetData } = this.props;
     let text = this.state.inputValue;
+    let isEdited = this.state.isEdited;
     sheetData ? (text = this.renderData(row, colKey, sheetData)) : null;
 
     return (
@@ -67,7 +76,7 @@ class CellitemComponent extends Component {
             className={styles.editContainer}
             onClick={e => this.toggleEditMode(text)}
           >
-            {text}
+            {isEdited ? this.state.inputValue : text}
           </div>
         )}
         {this.state.isEditMode && (
