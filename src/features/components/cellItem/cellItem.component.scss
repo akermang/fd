@@ -1,20 +1,37 @@
 .itemContainer {
-  background: rgb(245, 241, 241);
+  background: #c8c8c817;
   display: flex;
   padding: 2px;
   justify-content: center;
-  width: 30%;
+  width: 32%;
   min-height: 3.5vh;
+  overflow: hidden;
   .editContainer {
     display: flex;
     height: 27px;
     min-width: 100%;
-    border: 1px solid #eeaaaa;
+    border-bottom: 1px solid #eeaaaa;
+    color: #303f9f;
+    border-radius: 2px;
     justify-content: center;
     align-items: center;
+    div:first-child {
+      flex: 1;
+      justify-content: center;
+      text-align: center;
+    }
+    input {
+      text-align: center;
+      color: #303f9f;
+    }
+    div::before {
+      border-bottom: none;
+      content: "";
+      display: none;
+    }
   }
   input {
-    max-width: 60%;
+    max-width: 98%;
   }
   button {
     // max-width: 15%;

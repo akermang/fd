@@ -15,9 +15,8 @@ class CellitemComponent extends Component {
     };
   }
 
-  onBlur(e, row, colKey){
-    this.onSaveData(row, colKey)
-    this.cancelEditMode();
+  onBlur(e, row, colKey) {
+    this.onSaveData(row, colKey);
   }
 
   keyPress(e, row, colKey) {
@@ -33,7 +32,6 @@ class CellitemComponent extends Component {
   onSaveData(row, colKey) {
     let d = { row: row, col: colKey, text: this.state.inputValue };
     this.props.saveNewData(d);
-    console.log(this.state.inputValue);
     this.cancelEditMode();
   }
 
@@ -77,7 +75,7 @@ class CellitemComponent extends Component {
         {this.state.isEditMode && (
           <div className={styles.editContainer}>
             <TextField
-              onBlur={e  => this.onBlur(e, row, colKey)}
+              onBlur={e => this.onBlur(e, row, colKey)}
               autoFocus
               variant="outlined"
               onKeyDown={e => this.keyPress(e, row, colKey)}
