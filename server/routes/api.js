@@ -7,13 +7,6 @@ const sheetData = require("../mock/sheetData.json");
 
 const serverResponseTime = 200;
 
-// Simulate server delayed response
-function send(res, data) {
-  setTimeout(() => {
-    res.send(data);
-  }, serverResponseTime);
-}
-
 /**
  * Api routes
  */
@@ -26,10 +19,12 @@ router.get("/Sheet/Get", (req, res) => {
 // Post Sheet data
 router.post("/Sheet/Save", (req, res) => {
   const { row, col, text } = req.body;
-  if (row && col && text) {
+  if (row && col && text && !sheetData.cells[row]) {
     sheetData.cells[row] = { [col]: text };
     res.status(200).send(JSON.stringify(sheetData));
   } else {
+    let line = sheetData.cells[row];
+    line ? (line[col] = text) : null;
     res.status(200).send(JSON.stringify(sheetData));
   }
 });

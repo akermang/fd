@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import styles from "./cellItem.component.scss";
 import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
 
 class CellitemComponent extends Component {
   constructor(props) {
@@ -37,6 +34,7 @@ class CellitemComponent extends Component {
 
   toggleEditMode(text) {
     this.setState({ isEditMode: true });
+    this.setState({ inputValue: text });
   }
 
   cancelEditMode() {
@@ -53,7 +51,7 @@ class CellitemComponent extends Component {
     if (dataText) {
       return dataText;
     } else {
-      return " ";
+      return "";
     }
   }
 
@@ -67,7 +65,7 @@ class CellitemComponent extends Component {
         {!this.state.isEditMode && (
           <div
             className={styles.editContainer}
-            onClick={text => this.toggleEditMode(text)}
+            onClick={e => this.toggleEditMode(text)}
           >
             {text}
           </div>
@@ -89,14 +87,9 @@ class CellitemComponent extends Component {
   }
 }
 
-// CellitemComponent.propTypes = {
-//   example: PropTypes.string.isRequired
-// };
-
-// function mapStateToProps(state) {
-//   return {
-//     example: state.example.text
-//   };
-// }
+CellitemComponent.propTypes = {
+  row: PropTypes.number.isRequired,
+  colKey: PropTypes.string.isRequired
+};
 
 export default CellitemComponent;

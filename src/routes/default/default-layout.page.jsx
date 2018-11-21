@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './default-layout.page.scss';
 import HeaderComponent from '../../features/components/header/header.component.jsx';
-import userModel from '../../common/state/auth/auth.models';
 import { OpenDrawerAction } from '../../common/state/drawer/drawer.actions';
 
 const DefaultLayout = (props) => {
@@ -23,7 +22,6 @@ const DefaultLayout = (props) => {
           <HeaderComponent
             path={path}
             openDrawer={openDrawer}
-            // loggedInUser={loggedInUser}
           />
 
           <div className={styles.wrapper}>

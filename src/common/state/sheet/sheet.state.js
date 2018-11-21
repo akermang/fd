@@ -1,4 +1,3 @@
-const sheetState = {
-};
+const sheetState = {};
 
 export default sheetState;
