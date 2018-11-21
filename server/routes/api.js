@@ -26,11 +26,8 @@ router.get("/Sheet/Get", (req, res) =>
 // Post Sheet data
 router.post("/Sheet/Save", (req, res) => {
   const { row, col, text } = req.body;
-  console.log(req.body)
   if (row && col && text) {
-    const cellFactor = { b: 2, c: 1, d: 0 };
-    const cellKey = row * 3 - cellFactor[col];
-    sheetData.cells[cellKey] = {a: text}
+    sheetData.cells[row] = {[col]: text}
     send(res.status(200), JSON.stringify(sheetData));
   } else {
     send(res.status(200), JSON.stringify(sheetData));
