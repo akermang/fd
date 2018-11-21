@@ -19,18 +19,18 @@ function send(res, data) {
  */
 
 // Get Sheet data
-router.get("/Sheet/Get", (req, res) =>
-  send(res.status(200), JSON.stringify(sheetData))
-);
+router.get("/Sheet/Get", (req, res) => {
+  res.status(200).send(JSON.stringify(sheetData));
+});
 
 // Post Sheet data
 router.post("/Sheet/Save", (req, res) => {
   const { row, col, text } = req.body;
   if (row && col && text) {
-    sheetData.cells[row] = {[col]: text}
-    send(res.status(200), JSON.stringify(sheetData));
+    sheetData.cells[row] = { [col]: text };
+    res.status(200).send(JSON.stringify(sheetData));
   } else {
-    send(res.status(200), JSON.stringify(sheetData));
+    res.status(200).send(JSON.stringify(sheetData));
   }
 });
 
