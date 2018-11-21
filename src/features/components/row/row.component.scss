@@ -1,0 +1,11 @@
+.row {
+  display: flex;
+  justify-content: space-around;
+  .rowNumber{
+    min-width: 20px;
+  }
+  .cell {
+    width: 30%;
+    max-width: 20px;
+  }
+}

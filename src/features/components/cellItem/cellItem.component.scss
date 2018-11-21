@@ -1,0 +1,22 @@
+.itemContainer {
+  background: rgb(245, 241, 241);
+  display: flex;
+  padding: 2px;
+  justify-content: center;
+  width: 30%;
+  min-height: 3.5vh;
+  .editContainer {
+    display: flex;
+    height: 27px;
+    min-width: 100%;
+    border: 1px solid #eeaaaa;
+    justify-content: center;
+    align-items: center;
+  }
+  input {
+    max-width: 60%;
+  }
+  button {
+    // max-width: 15%;
+  }
+}

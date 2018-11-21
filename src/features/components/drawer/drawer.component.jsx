@@ -1,16 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
-import { Drawer, MenuItem } from '@material-ui/core';
-import { NavLink } from 'react-router-dom';
-import styles from './drawer.component.scss';
-import { ROUTES } from '../../../common/constants';
-import LogoComponent from '../logo/logo.component.jsx';
-import ImgSrc from '../../../../assets/img/logo.png';
+import React from "react";
+import PropTypes from "prop-types";
+import { translate } from "react-i18next";
+import { Drawer, MenuItem } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
+import styles from "./drawer.component.scss";
+import { ROUTES } from "../../../common/constants";
+import LogoComponent from "../logo/logo.component.jsx";
+import ImgSrc from "../../../../assets/img/logo.png";
+import HomeIcon from "@material-ui/icons/Home";
 
-const DrawerComponent = ({
-  closeDrawer, open, currentRoute, t
-}) => (
+const DrawerComponent = ({ closeDrawer, open, currentRoute, t }) => (
   <Drawer
     open={open}
     className={styles.container}
@@ -18,28 +17,24 @@ const DrawerComponent = ({
     onClose={() => closeDrawer()}
   >
     <div className={styles.drawer}>
-
-      <div className={styles.logo}><LogoComponent /></div>
+      <div className={styles.logo}>
+        <LogoComponent />
+      </div>
 
       <DrawerLink
         to={ROUTES.home}
-        iconSrc={ImgSrc}
-        label={t('HOME_PAGE')}
+        iconSrc={<HomeIcon />}
+        label={t("HOME_PAGE")}
         closeDrawer={closeDrawer}
       />
     </div>
   </Drawer>
 );
 
-const DrawerLink = ({
-  closeDrawer, iconSrc, label, to
-}) => (
-  <NavLink
-    activeClassName={styles.active}
-    to={to}
-  >
+const DrawerLink = ({ closeDrawer, iconSrc, label, to }) => (
+  <NavLink activeClassName={styles.active} to={to}>
     <MenuItem onClick={() => closeDrawer()}>
-      <img className={styles.icon} src={iconSrc} alt={`${label} link`} />
+      {iconSrc}
       <span>{label}</span>
     </MenuItem>
   </NavLink>
@@ -47,7 +42,7 @@ const DrawerLink = ({
 
 DrawerLink.propTypes = {
   to: PropTypes.string.isRequired,
-  iconSrc: PropTypes.string.isRequired,
+  iconSrc: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
   closeDrawer: PropTypes.func.isRequired
 };

@@ -9,7 +9,7 @@ const HeaderComponent = ({ openDrawer }) => (
     <AppBar position="static" className={styles.header}>
       <Toolbar>
         <IconButton onClick={() => openDrawer()}>
-          <Icon className={styles.hamburgerBtn}>more_vert</Icon>
+          <Icon className={styles.hamburgerBtn}>menue</Icon>
         </IconButton>
         The Farm Dog
       </Toolbar>
