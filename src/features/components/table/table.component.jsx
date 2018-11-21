@@ -5,6 +5,7 @@ import RowComponent from "../row/row.component.jsx";
 
 const TableComponent = props => {
   const { row, col, sheetData, saveNewData } = props;
+
   function renderRows(num) {
     const rows = [];
     for (let i = 0; i < num; i++) {
@@ -35,7 +36,7 @@ const TableComponent = props => {
 
 TableComponent.propTypes = {
   row: PropTypes.number.isRequired,
-  col: PropTypes.number.isRequired,
+  col: PropTypes.number.isRequired
 };
 
 export default TableComponent;

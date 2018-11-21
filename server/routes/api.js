@@ -5,8 +5,6 @@ const router = express.Router();
 // Mock data
 const sheetData = require("../mock/sheetData.json");
 
-const serverResponseTime = 200;
-
 /**
  * Api routes
  */

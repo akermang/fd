@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import LogoSrc from '../../../../assets/img/logo.png';
-import styles from './logo.component.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import LogoSrc from "../../../../assets/img/logo.png";
+import styles from "./logo.component.scss";
 
 const LogoComponent = ({ onClick }) => (
   <div role="presentation" className={styles.logo} onClick={onClick}>

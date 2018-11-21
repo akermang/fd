@@ -5,9 +5,6 @@ import CellitemComponent from "../cellItem/cellItem.component.jsx";
 
 const RowComponent = props => {
   const { rowNumber, col, sheetData, saveNewData } = props;
-  function ObjectCell() {
-    return <CellitemComponent />;
-  }
 
   function renderCells(num) {
     var rows = [];

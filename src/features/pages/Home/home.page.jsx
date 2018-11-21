@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styles from "./home.page.scss";
+import TableComponent from "../../components/table/table.component.jsx";
 import {
   fetchSheetDataAction,
   fetchSaveSheetDataAction
 } from "../../../common/state/sheet/sheet.actions.js";
-import TableComponent from "../../components/table/table.component.jsx";
 
 class HomePage extends Component {
   componentDidMount() {
