@@ -34,7 +34,8 @@ const TableComponent = props => {
 };
 
 TableComponent.propTypes = {
-  // example: PropTypes.string.isRequired
+  row: PropTypes.number.isRequired,
+  col: PropTypes.number.isRequired,
 };
 
 export default TableComponent;

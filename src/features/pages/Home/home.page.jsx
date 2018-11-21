@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import propTypes from "prop-types";
-import { translate } from "react-i18next";
 import styles from "./home.page.scss";
 import {
   fetchSheetDataAction,
@@ -11,11 +9,11 @@ import TableComponent from "../../components/table/table.component.jsx";
 
 class HomePage extends Component {
   componentDidMount() {
-    this.props.getData().then(res => console.log("GetData res:", res));
+    this.props.getData();
   }
 
   saveNewData(data) {
-    this.props.saveData(data).then(res => console.log("SaveData res;", res));
+    this.props.saveData(data);
   }
 
   render() {
@@ -51,11 +49,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-HomePage.propTypes = {
-  // dispatch: propTypes.func.isRequired,
-  t: propTypes.func.isRequired
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(
-  translate()(HomePage)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

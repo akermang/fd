@@ -35,7 +35,8 @@ const RowComponent = props => {
 };
 
 RowComponent.propTypes = {
-  // example: PropTypes.string.isRequired
+  rowNumber: PropTypes.number.isRequired,
+  col: PropTypes.number.isRequired
 };
 
 export default RowComponent;
