@@ -12,16 +12,12 @@ import { CloseDrawerAction } from './common/state/drawer/drawer.actions';
 
 class App extends Component {
   componentDidMount () {
-    this.initiateData();
     // redirect to homepage if route is empty
     if (this.props.location.pathname === ROUTES.empty) {
       this.props.history.push(ROUTES.home);
     }
   }
 
-  initiateData () {
-    this.props.openDialog('Farm Dog', 'hello from Gal Akerman');
-  }
 
   render () {
     const {
