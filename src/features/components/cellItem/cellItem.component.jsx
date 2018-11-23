@@ -52,7 +52,7 @@ class CellitemComponent extends Component {
     row && col && data.cells && data.cells[row] && data.cells[row][col]
       ? (dataText = data.cells[row][col])
       : null;
-      return (dataText? dataText: "")
+    return dataText;
   }
 
   render() {
