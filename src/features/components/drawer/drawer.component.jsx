@@ -8,6 +8,7 @@ import { ROUTES } from "../../../common/constants";
 import LogoComponent from "../logo/logo.component.jsx";
 import ImgSrc from "../../../../assets/img/logo.png";
 import HomeIcon from "@material-ui/icons/Home";
+import CodeIcon from "@material-ui/icons/Code";
 
 const DrawerComponent = ({ closeDrawer, open, currentRoute, t }) => (
   <Drawer
@@ -20,7 +21,6 @@ const DrawerComponent = ({ closeDrawer, open, currentRoute, t }) => (
       <div className={styles.logo}>
         <LogoComponent />
       </div>
-
       <DrawerLink
         to={ROUTES.home}
         iconSrc={<HomeIcon />}

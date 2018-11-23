@@ -9,14 +9,9 @@ class CellitemComponent extends Component {
     this.state = {
       isEditMode: false,
       inputValue: "",
-      isEdited: false
+      isEdited: false,
+      cellData: this.renderData(this.row, this.colKey, this.sheetData) || ""
     };
-  }
-
-  data() {
-    this.sheetData
-      ? this.renderData(this.row, this.colKey, this.sheetData)
-      : null;
   }
 
   onBlur(e, row, colKey) {
@@ -34,8 +29,12 @@ class CellitemComponent extends Component {
   }
 
   onSaveData(row, colKey) {
-    let d = { row: row, col: colKey, text: this.state.inputValue };
-    this.props.saveNewData(d);
+    let olldData = this.renderData(row, colKey, this.props.sheetData);
+    let newData = { row: row, col: colKey, text: this.state.inputValue };
+    if (olldData !== newData.text) {
+      this.props.saveNewData(newData);
+      this.setState({ isEdited: true });
+    }
     this.cancelEditMode();
   }
 
@@ -46,21 +45,14 @@ class CellitemComponent extends Component {
 
   cancelEditMode() {
     this.setState({ isEditMode: false });
-    this.setState({ isEdited: true });
   }
 
   renderData(row, col, data) {
     let dataText = "";
-    let line = "";
-    if (row && col && data.cells) {
-      data.cells[row] ? (line = data.cells[row]) : null;
-      line[col] ? (dataText = line[col]) : null;
-    }
-    if (dataText) {
-      return dataText;
-    } else {
-      return "";
-    }
+    row && col && data.cells && data.cells[row] && data.cells[row][col]
+      ? (dataText = data.cells[row][col])
+      : null;
+      return (dataText? dataText: "")
   }
 
   render() {
