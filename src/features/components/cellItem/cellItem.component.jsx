@@ -10,7 +10,6 @@ class CellitemComponent extends Component {
       isEditMode: false,
       inputValue: "",
       isEdited: false,
-      cellData: this.renderData(this.row, this.colKey, this.sheetData) || ""
     };
   }
 
