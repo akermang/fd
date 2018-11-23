@@ -36,7 +36,10 @@ const TableComponent = props => {
 
 TableComponent.propTypes = {
   row: PropTypes.number.isRequired,
-  col: PropTypes.number.isRequired
+  col: PropTypes.number.isRequired,
+  sheetData: PropTypes.object,
+  saveNewData: PropTypes.func.isRequired
+
 };
 
 export default TableComponent;

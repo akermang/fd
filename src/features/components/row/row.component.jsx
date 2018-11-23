@@ -33,7 +33,10 @@ const RowComponent = props => {
 
 RowComponent.propTypes = {
   rowNumber: PropTypes.number.isRequired,
-  col: PropTypes.number.isRequired
+  col: PropTypes.number.isRequired,
+  sheetData: PropTypes.object,
+  saveNewData: PropTypes.func.isRequired
+
 };
 
 export default RowComponent;

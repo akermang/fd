@@ -89,7 +89,9 @@ class CellitemComponent extends Component {
 
 CellitemComponent.propTypes = {
   row: PropTypes.number.isRequired,
-  colKey: PropTypes.string.isRequired
+  colKey: PropTypes.string.isRequired,
+  sheetData: PropTypes.object,
+  saveNewData: PropTypes.func.isRequired
 };
 
 export default CellitemComponent;

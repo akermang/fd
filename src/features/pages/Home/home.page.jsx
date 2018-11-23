@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import styles from "./home.page.scss";
 import TableComponent from "../../components/table/table.component.jsx";
@@ -41,12 +42,15 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    openDialog: (title, component) =>
-      dispatch(new OpenDrawerAction(title, component)),
-    openDrawer: () => dispatch(new OpenDrawerAction()),
     getData: () => dispatch(new fetchSheetDataAction()),
     saveData: data => dispatch(new fetchSaveSheetDataAction(data))
   };
 }
+
+HomePage.propTypes = {
+  sheetData: PropTypes.object,
+  getData: PropTypes.func.isRequired,
+  saveData: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
